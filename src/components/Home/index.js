@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 // Externals
 import Products from '../Products';
 import ErrorMessage from '../ErrorMessage';
+import { client } from '../../api/amazon';
 // Internals
 import './index.css';
 
@@ -22,8 +23,21 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // const urlToFetchCoffeeProducts = '';
-    // this.fetchProducts(urlToFetchCoffeeProducts);
+    client.itemSearch({
+      artist: 'Radiohead',
+      searchIndex: 'Music',
+      sort: 'relevancerank',
+      itemPage: 1,
+      availability: 'Available',
+      responseGroup: 'OfferFull,Large,Images',
+    }, function(err, results, response) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(results);  // products (Array of Object)
+        console.log(response); // response (Array where the first element is an Object that contains Request, Item, etc.)
+      }
+    });
   }
 
   fetchProducts = (url) => {
