@@ -14,7 +14,6 @@ const Products = ({ shelling, products }) => {
     return <ProductsShell />;
   }
 
-  const truncateOptions = { length: 15, separator: /,? +/ };
   return (
     <div className="products">
       {map(products, ({ title, description, src }) => (
