@@ -13,7 +13,18 @@
   height: 250px;
   width: 400px;
   background: #E0EAFC;
-  background: -webkit-linear-gradient(left, #CFDEF3, #E0EAFC);
-  background: -o-linear-gradient(left, #CFDEF3, #E0EAFC);
-  background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+  background: linear-gradient(-45deg, #CFDEF3, #CFDEF3);
+  animation: pulse-gradient 2s infinite;
+}
+
+@keyframes pulse-gradient {
+  0% {
+    box-shadow: 0 0 0 0 rgba(207,222,243, 1);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(207,222,243, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(207,222,243, 0);
+  }
 }

@@ -15,7 +15,7 @@ class Home extends Component {
     this.state = {
       error: false,
       products: [],
-      shelling: false,
+      shelling: true,
       searchTerm: '',
       requestIsEnabled: true,
     };
@@ -34,18 +34,15 @@ class Home extends Component {
       })
       .catch((error) => {
         console.log(error)
-        // Change our state to be the error handling state.
         this.setState({ error: true, shelling: false });
       })
   }
 
   onChangeHandler = (event) => {
-    if (this.state.requestIsEnabled && isEmpty(event.target.value)) {
+    if (this.state.requestIsEnabled && !isEmpty(event.target.value)) {
       this.setState({ requestIsEnabled: false, shelling: true });
-      // Let's make a network request
-      // Enable shell state by doing:
-      // const urlWithSearchTerm = `https://amazon.com/${encodeURI(event.target.value)}`;
-      // fetchProducts(urlWithSearchTerm);
+      const urlWithSearchTerm = `https://amazon.com/${encodeURI(event.target.value)}`;
+      this.fetchProducts(urlWithSearchTerm);
       setTimeout(() => this.setState({ requestIsEnabled: true }), 1000);
     }
     this.setState({ searchTerm: event.target.value });
@@ -55,16 +52,16 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="landing-background">
-          <nav>
+          <div className="nav">
+            <h1 className="title">Brad's Beans</h1>
             <NavLink
               activeClassName="selected"
               className="nav-link"
               to="/about"
             >
-              About
+              About his beans...
             </NavLink>
-          </nav>
-          <h1 className="title">Brad's Beans</h1>
+          </div>
           <ErrorMessage error={this.state.error} />
           <input
             type="text"

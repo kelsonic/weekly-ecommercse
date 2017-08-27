@@ -1,8 +1,27 @@
-nav {
+.landing-background {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title h1 {
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.title {
   font-family: 'Alex Brush', cursive;
+  font-size: 4em;
+}
+
+.nav-link {
+  margin-top: -2em;
+  margin-bottom: 2em;
+  align-self: center;
+}
+
+input {
+  width: 60%;
+  height: 3em;
 }
