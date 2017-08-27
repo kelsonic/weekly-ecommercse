@@ -10,6 +10,26 @@ const ProductsShell = () => (
       <div className="image" />
       <div className="description" />
     </div>
+    <div className="product-shell">
+      <div className="image" />
+      <div className="description" />
+    </div>
+    <div className="product-shell">
+      <div className="image" />
+      <div className="description" />
+    </div>
+    <div className="product-shell">
+      <div className="image" />
+      <div className="description" />
+    </div>
+    <div className="product-shell">
+      <div className="image" />
+      <div className="description" />
+    </div>
+    <div className="product-shell">
+      <div className="image" />
+      <div className="description" />
+    </div>
   </div>
 );
 

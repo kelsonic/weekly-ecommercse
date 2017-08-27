@@ -1,0 +1,19 @@
+.products-shell {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product-shell {
+  margin: 2em;
+}
+
+.image {
+  height: 250px;
+  width: 400px;
+  background: #E0EAFC;
+  background: -webkit-linear-gradient(left, #CFDEF3, #E0EAFC);
+  background: -o-linear-gradient(left, #CFDEF3, #E0EAFC);
+  background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+}

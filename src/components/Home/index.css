@@ -1,0 +1,8 @@
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.title h1 {
+  font-family: 'Alex Brush', cursive;
+}
