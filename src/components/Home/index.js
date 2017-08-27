@@ -28,25 +28,25 @@ class Home extends Component {
 
   fetchProducts = (url) => {
     fetch(url)
-      .then((res) => res.json())
-      .then((products) => {
-        this.setState({ products, shelling: false });
-      })
       .catch((error) => {
         console.log(error)
         // Change our state to be the error handling state.
         this.setState({ error: true, shelling: false });
       })
+      .then((res) => res.json())
+      .then((products) => {
+        this.setState({ products, shelling: false });
+      })
   }
 
   onChangeHandler = (event) => {
-    if (this.state.requestIsEnabled && isEmpty(event.target.value)) {
+    if (this.state.requestIsEnabled && !isEmpty(event.target.value)) {
+      // Enable shelling for network request and disable future network requests for 1 second.
       this.setState({ requestIsEnabled: false, shelling: true });
-      // Let's make a network request
-      // Enable shell state by doing:
-      // const urlWithSearchTerm = `https://amazon.com/${encodeURI(event.target.value)}`;
-      // fetchProducts(urlWithSearchTerm);
       setTimeout(() => this.setState({ requestIsEnabled: true }), 1000);
+      // Make the network request to Amazon.
+      const urlWithSearchTerm = `${encodeURI(event.target.value)}`;
+      this.fetchProducts(urlWithSearchTerm);
     }
     this.setState({ searchTerm: event.target.value });
   }
