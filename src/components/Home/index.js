@@ -28,13 +28,13 @@ class Home extends Component {
 
   fetchProducts = (url) => {
     fetch(url)
-      .then((res) => res.json())
-      .then((products) => {
-        this.setState({ products, shelling: false });
-      })
       .catch((error) => {
         console.log(error)
         this.setState({ error: true, shelling: false });
+      })
+      .then((res) => res.json())
+      .then((products) => {
+        this.setState({ products, shelling: false });
       })
   }
 
@@ -44,6 +44,9 @@ class Home extends Component {
       const urlWithSearchTerm = `https://amazon.com/${encodeURI(event.target.value)}`;
       this.fetchProducts(urlWithSearchTerm);
       setTimeout(() => this.setState({ requestIsEnabled: true }), 1000);
+      // Make the network request to Amazon.
+      const urlWithSearchTerm = `${encodeURI(event.target.value)}`;
+      this.fetchProducts(urlWithSearchTerm);
     }
     this.setState({ searchTerm: event.target.value });
   }

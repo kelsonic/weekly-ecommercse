@@ -14,7 +14,7 @@ const ErrorMessage = ({ error }) => {
     <div className="error-message">
       <p className="red">Roses are red...</p>
       <p className="blue">Violets are blue...</p>
-      <p className="black">Amazon's server just gave us a "F*** you!"</p>
+      <p className="black">Amazon's server just gave us a massive F*** YOU!</p>
     </div>
   );
 }
